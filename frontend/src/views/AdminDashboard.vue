@@ -5,7 +5,6 @@
       dark    
     >
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
       <v-toolbar-title class="ml-auto"> <span class="font-weight-light">PS Admin</span> Dashboard <span>  </span></v-toolbar-title>
     </v-app-bar>
 
@@ -83,6 +82,7 @@ export default {
             ]
         }
     },
+   
     mounted ()
     {
      
