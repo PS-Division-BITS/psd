@@ -43,9 +43,7 @@
                   <v-list-item-content>
                       <v-list-item-title >{{link.text}}</v-list-item-title>
                   </v-list-item-content>
-
-           </v-list-item>
-              
+           </v-list-item>              
           </v-list>
        </v-list-item-group>
     </v-navigation-drawer>
