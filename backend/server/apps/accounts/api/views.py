@@ -19,7 +19,7 @@ class GoogleLogin(SocialLoginView):
 class VerifyToken(APIView):
     def post(self ,request):
         try:
-            user = Token.objects.get(key=request.POST['key']).user
+            user = Token.objects.get(key=request.data['key']).user
             return Response(
                 data={
                     'success': True, 'message': 'Success: User found',
