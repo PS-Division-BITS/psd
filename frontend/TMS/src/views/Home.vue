@@ -1,7 +1,7 @@
 <template>
     <div class="home">
             <LoginCard/>
-        
+            Access Token : {{accessToken}} <br>
         <a href="/student">Student</a><br />
         <a href="/supervisor">supervisor</a><br />
         <a href="/hod">hod</a><br />
@@ -19,6 +19,11 @@ export default {
     name: 'Home',
     components: {
         LoginCard
+    },
+    computed : {
+        accessToken(){
+            return this.$store.state.auth.token;
+        }
     }
 }
 </script>
