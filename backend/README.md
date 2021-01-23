@@ -10,6 +10,11 @@ This is the server side code for the repository. In order to reproduce the envir
 
     ``python3.7 -m virtualenv -r requirements.txt``
 
-3. activate virtualen
+3. Use the following credentials for social applications
 
-    ``source env/bin/activate``
+    ``client id: 168640746186-md2jc7i8gtnn1n6geal4kqj20sop8ei6.apps.googleusercontent.com``
+    ``secret key: LTr3aP3bIg9zcx_i3Y3O6Ar7``
+    ``provider: Google``
+    ``Sites : example.com``
+
+    
