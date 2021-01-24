@@ -8,6 +8,9 @@ class ActiveUserProfile(models.Model):        #model used for filling the databa
     UserProfile model isntance automatically once a User
     model instance is created.
     """
+    username = models.CharField(max_length=13)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     user_choices = [
         (UserType.STUDENT.value, 'Student'),
         (UserType.SUPERVISOR.value, 'Supervisor'),
