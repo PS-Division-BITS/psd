@@ -11,8 +11,8 @@ class PS2TS(APIView):
     def post(self, request, *args, **kwargs):
         try:
             #hardcoded user for now
-            active_user = ActiveUserProfile.objects.get(email='nrupeshsurya@gmail.com')
-            # active_user = ActiveUserProfile.objects.get(email=request.user.email)
+            # active_user = ActiveUserProfile.objects.get(email='nrupeshsurya@gmail.com')
+            active_user = ActiveUserProfile.objects.get(email=request.user.email)
             if not active_user.is_active_tms:
                 raise Exception('Access Denied. User not present in active user list')
         except Exception:
