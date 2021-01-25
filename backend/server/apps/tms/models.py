@@ -11,7 +11,7 @@ class ActiveUserProfile(models.Model):        #model used for filling the databa
     user_choices = [
         (UserType.STUDENT.value, 'Student'),
         (UserType.SUPERVISOR.value, 'Supervisor'),
-        (UserType.HOD.value, 'Head of Department'),
+        (UserType.HOD.value, 'Head of Department'),     # all HODs are supervisors
         (UserType.AD.value, 'Associate Dean'),
         (UserType.PSD.value, 'PS-Division'),
     ]
