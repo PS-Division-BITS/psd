@@ -14,6 +14,7 @@ urlpatterns = [
 
     # AD related URLs
     path('AD/dashboard/',ad_views.ADdashboard.as_view()),
+    
     # supervisor related URLs
     path('supervisor/dashboard/', supervisor_views.supervisorView.as_view()),
     path('supervisor/approve_transfer_request/', supervisor_views.approve_transfer_request)

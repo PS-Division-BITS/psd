@@ -55,7 +55,6 @@ class HodData(APIView):
                 for application in pending_applications_list:
                     try:
                         user_obj = User.objects.get(email=application['applicant__email'])
-                        application.update({'applicant_username': user_obj.username})
                         application.update({'applicant_first_name': user_obj.first_name})
                         application.update({'applicant_last_name': user_obj.last_name})
                     except Exception as e:
@@ -75,7 +74,6 @@ class HodData(APIView):
                 for application in approved_applications_list:
                     try:
                         user_obj = User.objects.get(email=application['applicant__email'])
-                        application.update({'applicant_username': user_obj.username})
                         application.update({'applicant_first_name': user_obj.first_name})
                         application.update({'applicant_last_name': user_obj.last_name})
                     except Exception as e:
@@ -150,7 +148,6 @@ class HodData(APIView):
                 for application in pending_applications_list:
                     try:
                         user_obj = User.objects.get(email=application['applicant__email'])
-                        application.update({'applicant_username': user_obj.username})
                         application.update({'applicant_first_name': user_obj.first_name})
                         application.update({'applicant_last_name': user_obj.last_name})
                     except Exception as e:
@@ -193,7 +190,6 @@ class HodData(APIView):
                 for application in approved_applications_list:
                     try:
                         user_obj = User.objects.get(email=application['applicant__email'])
-                        application.update({'applicant_username': user_obj.username})
                         application.update({'applicant_first_name': user_obj.first_name})
                         application.update({'applicant_last_name': user_obj.last_name})
                     except Exception as e:
@@ -271,12 +267,12 @@ class ApproveTransferRequest(APIView):
                 },
                 status = status.HTTP_403_FORBIDDEN
             )
-        applicant = request.data.get('student_username')
+        applicant_email = request.data.get('student_email')
         application_type = int(request.data.get('application_type'))
         approved_by = active_user.user_type
         comments = request.data.get('comments')
         status_data = request.data.get('status')
-        saved = update_application(applicant, application_type, approved_by, status_data, comments)
+        saved = update_application(applicant_email, application_type, approved_by, status_data, comments)
         if saved:
             return Response(
                 data = {
@@ -321,20 +317,3 @@ class ExportHod(APIView):
             )
         response = getFileHod(request, int(request.query_params.get('type')))
         return response
-
-# Only here for testing, mote to shared_utils.py later
-def clean_list(application_list):
-    for data in application_list:
-        try:
-            if 'thesis_locale' in data:
-                data['thesis_locale_alias'] = ThesisLocaleType._member_names_[data.pop('thesis_locale')]
-            if 'is_supervisor_approved' in data:
-                status_alias = ApplicationsStatus._member_names_[data.pop('is_supervisor_approved')]
-                data['status'] = status_alias
-            elif 'is_hod_approved' in data:
-                status_alias = ApplicationsStatus._member_names_[data.pop('is_hod_approved')]
-                data['status'] = status_alias
-        except Exception as e:
-            print('error in shared_utils.clean_list')
-            print(e) # left for debugging
-    return application_list
