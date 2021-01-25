@@ -17,6 +17,9 @@ class Migration(migrations.Migration):
             name='ActiveUserProfile',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('username', models.CharField(max_length=13)),
+                ('first_name', models.CharField(max_length=50)),
+                ('last_name', models.CharField(max_length=50)),
                 ('email', models.EmailField(max_length=254)),
                 ('campus', models.IntegerField(blank=True, choices=[(0, 'Goa'), (1, 'Hyderabad'), (2, 'Pilani')], null=True)),
                 ('contact', models.CharField(blank=True, help_text='Enter 10 digit contact number', max_length=20, null=True)),
