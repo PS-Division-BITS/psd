@@ -115,9 +115,9 @@ class TS2PSTransfer(models.Model):
     # PSTS2PSPS = 1
     # TSTS2TSPS = 2
     sub_type_choices = [
-        (TransferType.TS2PS, 'TS to PS (Single Degree)'),
-        (TransferType.PSTS2PSPS, 'PS-TS to PS-PS (Dual Degree)'),
-        (TransferType.TSTS2TSPS, 'TS-TS to TS-PS (Dual Degree)'),
+        (TransferType.TS2PS.value, 'TS to PS (Single Degree)'),
+        (TransferType.PSTS2PSPS.value, 'PS-TS to PS-PS (Dual Degree)'),
+        (TransferType.TSTS2TSPS.value, 'TS-TS to TS-PS (Dual Degree)'),
         ]
     status_choices = [
         (ApplicationsStatus.PENDING.value, 'Pending'),
