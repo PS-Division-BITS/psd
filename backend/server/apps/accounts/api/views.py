@@ -34,6 +34,7 @@ class VerifyToken(APIView):
         except Exception as e:
             if settings.DEBUG:
                 traceback.print_exc()
+                print(request.data)
             return Response(
                 data={
                     'success': False, 'message': str(e)
