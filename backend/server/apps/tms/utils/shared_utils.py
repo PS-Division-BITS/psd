@@ -7,14 +7,12 @@ from rest_framework.response import Response
 # from apps.tms.utils.student_utils import notify_ps2ts
 
 
-def update_application(applicant, application_type, approved_by, status, comments):
+def update_application(applicant_email, application_type, approved_by, status, comments):
     try:
-        print('Hey??')
-        print(application_type)
         if int(application_type) == TransferType.TS2PS.value:
-            transfer_form = TS2PSTransfer.objects.get(applicant__user__username=applicant)
+            transfer_form = TS2PSTransfer.objects.get(applicant__email=applicant_email)
         else:
-            transfer_form = PS2TSTransfer.objects.get(applicant__user__username=applicant)
+            transfer_form = PS2TSTransfer.objects.get(applicant__email=applicant_email)
         if approved_by == UserType.SUPERVISOR.value:
             transfer_form.is_supervisor_approved = int(status)
             transfer_form.comments_from_supervisor = comments
