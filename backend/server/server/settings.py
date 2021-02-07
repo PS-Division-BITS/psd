@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
+SESSION_COOKIE_SAMESITE = None
 
 # Application definition
 
